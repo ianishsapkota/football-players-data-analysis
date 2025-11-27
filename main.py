@@ -14,4 +14,13 @@ print(top10_dribbles)
 position_counts = df['position'].value_counts()
 plt.pie(position_counts,labels = position_counts.index)
 plt.title("Distribution of Players Position")
+
+
+assists_per_club = df.groupby('club')['assists'].sum()
+
+plt.bar(assists_per_club.index, assists_per_club.values)
+plt.xticks(rotation=90)
+plt.title("Assists per Club (Sorted)")
+plt.xlabel("Club")
+plt.ylabel("Assists")
 plt.show()
